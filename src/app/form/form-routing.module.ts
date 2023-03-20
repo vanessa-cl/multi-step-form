@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FinishingUpComponent } from './finishing-up/finishing-up.component';
 import { FormComponent } from './form.component';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
-import { PickAddOnsComponent } from './pick-add-ons/pick-add-ons.component.spec';
+import { PickAddOnsComponent } from './pick-add-ons/pick-add-ons.component';
 import { SelectPlanComponent } from './select-plan/select-plan.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 

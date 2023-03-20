@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Component({
-  selector: 'app-pick-add-ons',
-  templateUrl: './pick-add-ons.component.html',
-  styleUrls: ['./pick-add-ons.component.sass']
-})
-export class PickAddOnsComponent {
+import { PickAddOnsComponent } from './pick-add-ons.component';
 
-}
+describe('PickAddOnsComponent', () => {
+  let component: PickAddOnsComponent;
+  let fixture: ComponentFixture<PickAddOnsComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ PickAddOnsComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(PickAddOnsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

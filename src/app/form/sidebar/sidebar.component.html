@@ -1,1 +1,5 @@
-<p>sidebar works!</p>
+<nav>
+  <ul>
+    <app-step *ngFor="let step of steps" [step]="step"></app-step>
+  </ul>
+</nav>

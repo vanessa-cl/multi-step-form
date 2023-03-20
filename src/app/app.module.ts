@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormModule } from './form/form.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 
@@ -14,7 +13,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    FormModule,
     AppRoutingModule
   ],
   providers: [],

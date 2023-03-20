@@ -1,0 +1,21 @@
+<section>
+  <h1>Select your plan</h1>
+  <h2>You have the option of monthly or yealy billing.</h2>
+  <div>
+    <app-plan *ngFor="let plan of plans" [plan]="plan"></app-plan>
+  </div>
+  <div>
+    <label
+      >Monthly
+      <input type="checkbox" />
+    </label>
+    <label
+      >Yearly
+      <input type="checkbox" />
+    </label>
+  </div>
+  <div>
+    <button>Go back</button>
+    <button>Next Step</button>
+  </div>
+</section>

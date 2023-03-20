@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Plan } from '../plan';
 
 @Component({
   selector: 'app-plan',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./plan.component.sass']
 })
 export class PlanComponent {
-
+  @Input() plan: Plan;
 }

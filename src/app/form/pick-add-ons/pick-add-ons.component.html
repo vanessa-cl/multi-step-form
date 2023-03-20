@@ -1,0 +1,14 @@
+<section>
+  <h1>Pick add-ons</h1>
+  <h2>Add-ons help enhance your gaming experience.</h2>
+  <div>
+    <app-add-on-checkbox
+      *ngFor="let addOn of addOns"
+      [addOn]="addOn"
+    ></app-add-on-checkbox>
+  </div>
+  <div>
+    <button>Go back</button>
+    <button>Next Step</button>
+  </div>
+</section>
