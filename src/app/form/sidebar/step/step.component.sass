@@ -1,0 +1,36 @@
+@import '../../../sass/utilities/_mixins.sass'
+
+.step
+  display: flex
+  list-style: none
+
+.step-item
+  width: 13rem
+  height: 3rem
+  margin-bottom: 2rem
+
+.step-item, .step-icon
+  @include flexbox(row, center, center)
+
+.step-icon
+  width: 2.5rem
+  height: 2.5rem
+  border-radius: 2.1rem
+  border: 0.01rem solid var(--white)
+
+  p
+    @include sidebar-text(--white, 1.2rem, 700)
+
+.step-title
+  width: 8rem
+  margin: 0 auto
+
+.step-description
+  @include sidebar-text(--white, 1rem, 700)
+  letter-spacing: 1px
+
+.step-name
+  @include sidebar-text(--light-gray, 0.875rem, 400)
+
+.step-name, .step-description
+  margin: 0.475rem 0

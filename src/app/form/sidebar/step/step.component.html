@@ -1,9 +1,11 @@
-<li>
-  <a>
-    <p>{{ step.id }}</p>
-    <div>
-      <p>Step {{ step.id }}</p>
-      <p>{{ step.description }}</p>
+<li class="step">
+  <a class="step-item">
+    <div class="step-icon">
+      <p>{{ step.id }}</p>
+    </div>
+    <div class="step-title">
+      <p class="step-name">Step {{ step.id }}</p>
+      <p class="step-description">{{ step.description }}</p>
     </div>
   </a>
 </li>
