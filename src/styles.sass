@@ -1,16 +1,18 @@
-@font-face 
+@import './app/sass/utilities/_mixins.sass'
+
+@font-face
   font-family: 'Ubuntu'
   src: url('./assets/fonts/Ubuntu-Bold.ttf')
   font-weight: 700
   font-style: normal
 
-@font-face 
+@font-face
   font-family: 'Ubuntu'
   src: url('./assets/fonts/Ubuntu-Medium.ttf')
   font-weight: 500
   font-style: normal
 
-@font-face 
+@font-face
   font-family: 'Ubuntu'
   src: url('./assets/fonts/Ubuntu-Regular.ttf')
   font-weight: 400
@@ -29,3 +31,16 @@
   --white: #FFFFFF
   background-color: var(--light-blue)
   font-family: 'Ubuntu', sans-serif
+
+html
+  overflow: clip
+  box-sizing: border-box
+
+html, body
+  height: 100%
+
+body
+  @include flexbox(row, center, center)
+
+*, *:before, *:after
+  box-sizing: inherit

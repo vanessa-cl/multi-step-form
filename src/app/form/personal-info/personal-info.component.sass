@@ -1,0 +1,41 @@
+@import '../../sass/utilities/_mixins.sass'
+@import '../../sass/utilities/_extends.sass'
+
+.form-personal-info
+  @include flexbox(column, flex-start, flex-start)
+
+.form-header
+
+  h1
+    @include text-style(--marine-blue, 2rem, 700, none)
+    margin-bottom: 1rem
+
+  p
+    @include text-style(--cool-gray, 1rem, 400, none)
+
+.form-input-area
+  width: 100%
+
+.form-input-row
+  @include flexbox(column, flex-start, flex-start)
+  margin: 1rem 0
+
+  label
+    @include text-style(--marine-blue, 1rem, 400, none)
+    margin: 0.5rem 0
+
+  input
+    width: 100%
+    @include text-style(--cool-gray, 1rem, 500, none)
+    background: var(--white)
+    padding: 0.7rem
+    border: 1px solid var(--light-gray)
+    border-radius: 7px
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+
+  input[type=number]
+    -moz-appearance: textfield

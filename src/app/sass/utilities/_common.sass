@@ -1,0 +1,11 @@
+@import './_mixins.sass'
+@import './_extends.sass'
+
+.form-footer
+  @include flexbox(row, center, flex-end)
+  margin-top: 5rem
+
+  .form-next-button
+    @extend %form-button
+    @include text-style(--white, 1rem, 400, none)
+    background-color: var(--marine-blue)

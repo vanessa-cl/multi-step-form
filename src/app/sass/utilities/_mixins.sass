@@ -4,9 +4,9 @@
   align-items: $align
   justify-content: $justify
 
-  
-@mixin sidebar-text($color, $size, $weight)
+
+@mixin text-style($color, $size, $weight, $transform)
   color: var($color)
   font-size: $size
   font-weight: $weight
-  text-transform: uppercase
+  text-transform: $transform
