@@ -1,21 +1,23 @@
-<section>
-  <h1>Select your plan</h1>
-  <h2>You have the option of monthly or yealy billing.</h2>
-  <div>
-    <app-plan *ngFor="let plan of plans" [plan]="plan"></app-plan>
-  </div>
-  <div>
-    <label
-      >Monthly
-      <input type="checkbox" />
-    </label>
-    <label
-      >Yearly
-      <input type="checkbox" />
-    </label>
-  </div>
-  <div>
-    <button>Go back</button>
-    <button>Next Step</button>
-  </div>
+<section class="form-wrapper">
+  <header class="form-header">
+    <h1>Select your plan</h1>
+    <p>You have the option of monthly or yealy billing.</p>
+  </header>
+  <form class="form-plans-area">
+    <div class="form-plans">
+      <app-plan *ngFor="let plan of plans" [plan]="plan"></app-plan>
+    </div>
+    <div class="form-toggle-wrapper">
+      <label class="label-billing">Monthly</label>
+      <label for="form-billing" class="form-toggle">
+        <input id="form-billing" type="checkbox" checked />
+        <span class="slider round"></span>
+      </label>
+      <label class="label-billing">Yearly</label>
+    </div>
+  </form>
+  <footer class="form-footer">
+    <button class="form-back-button">Go back</button>
+    <button class="form-next-button">Next Step</button>
+  </footer>
 </section>

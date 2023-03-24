@@ -1,0 +1,25 @@
+@import '../../../sass/utilities/_mixins.sass'
+
+.form-plan
+  @include flexbox(column, flex-start, flex-start)
+  border: 1px solid var(--light-gray)
+  border-radius: 7px
+  padding: 1rem
+  width: 8.5rem
+
+  h3
+    @include text-style(--marine-blue, 1rem, 500, none)
+
+  img
+    margin: 0 2rem 2rem 0
+
+.form-plan-description
+
+  h3, p
+    margin: 0.4rem 0
+
+.form-plan-value
+  @include text-style(--cool-gray, 0.9rem, 400, none)
+
+.form-plan-free
+  @include text-style(--marine-blue, 0.8rem, 500, none)

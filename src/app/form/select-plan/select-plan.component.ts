@@ -4,7 +4,7 @@ import { Plan } from './plan';
 @Component({
   selector: 'app-select-plan',
   templateUrl: './select-plan.component.html',
-  styleUrls: ['./select-plan.component.sass'],
+  styleUrls: ['./select-plan.component.sass', '../../sass/utilities/_common.sass'],
 })
 export class SelectPlanComponent {
   plans: Array<Plan> = [

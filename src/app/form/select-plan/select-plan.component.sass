@@ -1,0 +1,71 @@
+@import '../../sass/utilities/_mixins.sass'
+
+.form-plans-area, .form-toggle-wrapper
+  width: 100%
+
+.form-plans-area
+  @include flexbox(column, initial, flex-start)
+  height: 100%
+
+.form-plans
+  @include flexbox(row, center, space-between)
+
+.form-plans, .form-toggle-wrapper
+  margin-top: 2rem
+
+.form-toggle-wrapper
+  @include flexbox(row, center, center)
+  padding: 1rem
+  background-color: var(--magnolia)
+  border-radius: 7px
+
+.form-toggle
+  position: relative
+  display: inline-block
+  width: 52px
+  height: 26px
+
+  & input
+    opacity: 0
+    width: 0
+    height: 0
+
+.slider
+  position: absolute
+  cursor: pointer
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: var(--marine-blue)
+  -webkit-transition: .4s
+  transition: .4s
+
+  &:before
+    position: absolute
+    content: ""
+    height: 18px
+    width: 18px
+    left: 4px
+    bottom: 4px
+    background-color: var(--white)
+    -webkit-transition: .4s
+    transition: .4s
+
+  &.round
+    border-radius: 34px
+
+  &.round:before
+    border-radius: 50%
+
+  input:checked + &
+    background-color: var(--marine-blue)
+
+  input:checked + &:before
+    -webkit-transform: translateX(26px)
+    -ms-transform: translateX(26px)
+    transform: translateX(26px)
+
+.label-billing
+  @include text-style(--cool-gray, 1rem, 500, none)
+  margin: 0 1rem
