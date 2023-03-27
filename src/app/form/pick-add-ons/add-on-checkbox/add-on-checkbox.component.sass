@@ -1,0 +1,74 @@
+@import '../../../sass/utilities/_mixins.sass'
+
+.form-add-on
+  @include flexbox(row, center, space-between)
+  border: 1px solid var(--light-gray)
+  border-radius: 7px
+  padding: 1.2rem
+
+.add-on-description, .add-on-value
+  margin: 0
+
+.add-on-title
+  @include text-style(--marine-blue, 1.1rem, 500, none)
+  margin: 0 0 0.2rem 0
+
+.add-on-description
+  @include text-style(--cool-gray, 1rem, 400, none)
+
+.add-on-value
+  @include text-style(--purplish-blue, 1rem, 400, none)
+
+.add-on-detail
+  margin-right: auto
+
+.checkbox-container, .checkmark
+  height: 22px
+  width: 22px
+  margin-right: 22px
+
+.checkbox-container
+  display: block
+  position: relative
+  cursor: pointer
+  font-size: 22px
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+  & input
+    position: absolute
+    opacity: 0
+    cursor: pointer
+    height: 0
+    width: 0
+
+  & input:checked ~ .checkmark
+    background-color: var(--purplish-blue)
+
+  & input:checked ~ .checkmark:after
+    display: block
+
+  & .checkmark:after
+    left: 8px
+    top: 5px
+    width: 5px
+    height: 10px
+    border: solid white
+    border-width: 0 2px 2px 0
+    -webkit-transform: rotate(45deg)
+    -ms-transform: rotate(45deg)
+    transform: rotate(45deg)
+
+.checkmark
+  position: absolute
+  top: 0
+  left: 0
+  border: 1px solid var(--light-gray)
+  border-radius: 5px
+
+  &:after
+    content: ""
+    position: absolute
+    display: none

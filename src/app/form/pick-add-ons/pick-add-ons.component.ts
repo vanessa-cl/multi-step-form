@@ -4,7 +4,7 @@ import { AddOn } from './add-on';
 @Component({
   selector: 'app-pick-add-ons',
   templateUrl: './pick-add-ons.component.html',
-  styleUrls: ['./pick-add-ons.component.sass'],
+  styleUrls: ['./pick-add-ons.component.sass', '../../sass/utilities/_common.sass'],
 })
 export class PickAddOnsComponent {
   addOns: Array<AddOn> = [
