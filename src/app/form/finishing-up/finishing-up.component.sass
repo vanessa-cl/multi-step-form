@@ -1,0 +1,62 @@
+@import '../../sass/utilities/_mixins'
+@import '../../sass/utilities/_extends'
+
+hr
+  color: var(--light-gray)
+  opacity: 20%
+
+p
+  margin: 0
+  padding: 0
+
+.form-summary-area, .form-summary-plan, .form-summary-detail, hr
+  width: 100%
+
+.form-summary-area
+  margin: 3rem 0 auto 0
+
+.form-summary
+  @include flexbox(column, center, center)
+  background-color: var(--magnolia)
+  border-radius: 5px
+
+.form-summary, .form-total
+  padding: 1.5rem
+
+.form-summary-plan, .form-summary-detail, .form-total
+  @include flexbox(row, center, space-between)
+
+.form-summary-plan
+  padding-bottom: 1rem
+
+  p
+    @include text-style(--marine-blue, 1.1rem, 500, none)
+
+  button
+    @include text-style(--cool-gray, 1rem, 400, none)
+    @extends %form-button
+    background-color: transparent
+    border: none
+    text-decoration: underline
+    text-decoration-thickness: 2px
+    padding: 0
+
+.form-summary-detail
+  margin-top: 1rem
+
+.form-summary-detail, .form-total 
+  
+  p
+    @include text-style(--cool-gray, 1rem, 500, none)
+
+  .detail-value
+    @include text-style(--marine-blue, 1rem, 400, none)
+
+  .total-value
+    @include text-style(--purplish-blue, 1.2rem, 700, none)
+
+.form-confirm-button
+  @extend %form-button
+  @include text-style(--white, 1rem, 500, none)
+  background-color: var(--purplish-blue)
+  margin-left: auto
