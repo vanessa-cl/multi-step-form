@@ -8,9 +8,9 @@ import { Step } from './step';
 })
 export class SidebarComponent {
   steps: Array<Step> = [
-    { id: 1, description: 'Your Info' },
-    { id: 2, description: 'Select Plan' },
-    { id: 3, description: 'Add-Ons' },
-    { id: 4, description: 'Summary' },
+    { id: 1, description: 'Your Info', route: "/form/personal-info" },
+    { id: 2, description: 'Select Plan', route: "/form/select-plan" },
+    { id: 3, description: 'Add-Ons', route: "/form/pick-add-ons" },
+    { id: 4, description: 'Summary', route: "/form/finishing-up" },
   ];
 }

@@ -1,6 +1,9 @@
 <li class="step">
-  <a class="step-item">
-    <div class="step-icon">
+  <a
+    class="step-item"
+    routerLink={{step.route}}
+  >
+    <div class="step-icon" routerLinkActive="active">
       <p>{{ step.id }}</p>
     </div>
     <div class="step-title">

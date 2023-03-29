@@ -12,6 +12,7 @@ const routes: Routes = [
     path: '',
     component: FormComponent,
     children: [
+      { path: '', redirectTo: 'personal-info', pathMatch: 'full' },
       { path: 'personal-info', component: PersonalInfoComponent },
       { path: 'select-plan', component: SelectPlanComponent },
       { path: 'pick-add-ons', component: PickAddOnsComponent },
