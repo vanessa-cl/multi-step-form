@@ -1,0 +1,15 @@
+@import '../../sass/utilities/_mixins.sass'
+
+.thank-you-wrapper
+  @include flexbox(column, center, center)
+  margin: 10rem 0
+
+  p
+    margin: 0
+
+  h1
+    @include text-style(--marine-blue, 2rem, 700, none)
+
+  p
+    @include text-style(--cool-gray, 1rem, 400, none)
+    text-align: center

@@ -1,6 +1,12 @@
 @import './_mixins.sass'
 @import './_extends.sass'
 
+.main-wrapper
+  background-color: var(--white)
+  @include flexbox(row, center, center)
+  border-radius: 15px
+  padding: 1rem
+
 .form-wrapper
   @include flexbox(column, flex-start, space-between)
   height: 100%
