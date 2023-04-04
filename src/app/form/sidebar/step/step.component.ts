@@ -10,6 +10,5 @@ export class StepComponent implements OnInit {
   @Input() step: Step;
 
   ngOnInit() {
-    console.log(this.step);
   }
 }

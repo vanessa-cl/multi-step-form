@@ -1,34 +1,55 @@
-<section class="form-wrapper">
+<section  class="form-wrapper">
   <header class="form-header">
     <h1>Personal info</h1>
     <p>Please provide your name, email address, and phone number.</p>
   </header>
-  <form class="form-input-area">
+  <form [formGroup]="personalInfo" class="form-input-area">
     <div class="form-input-row">
-      <label class="form-label" for="name">Name</label>
+      <div class="form-label-wrapper">
+        <label class="form-label" for="name">Name</label>
+        <app-error-message
+          [showError]="validateFields('name')"
+          [errorMessage]="checkErrorMessage('name')"
+        ></app-error-message>
+      </div>
       <input
         id="name"
         name="name"
         type="text"
         placeholder="e.g. Stephen King"
+        formControlName="name"
       />
     </div>
     <div class="form-input-row">
-      <label class="form-label" for="email">Email Address</label>
+      <div class="form-label-wrapper">
+        <label class="form-label" for="email">Email Address</label>
+        <app-error-message
+          [showError]="validateFields('email')"
+          [errorMessage]="checkErrorMessage('email')"
+        ></app-error-message>
+      </div>
       <input
         id="email"
         name="email"
         type="email"
         placeholder="e.g. stephenking@lorem.com"
+        formControlName="email"
       />
     </div>
     <div class="form-input-row">
-      <label class="form-label" for="phone-number">Phone Number</label>
+      <div class="form-label-wrapper">
+        <label class="form-label" for="phone-number">Phone Number</label>
+        <app-error-message
+          [showError]="validateFields('phoneNumber')"
+          [errorMessage]="checkErrorMessage('phoneNumber')"
+        ></app-error-message>
+      </div>
       <input
         id="phone-number"
         name="phone-number"
         type="number"
         placeholder="e.g. +1 234 567 890"
+        formControlName="phoneNumber"
       />
     </div>
   </form>

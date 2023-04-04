@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormRoutingModule } from './form-routing.module';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
@@ -13,6 +13,7 @@ import { FormComponent } from './form.component';
 import { StepComponent } from './sidebar/step/step.component';
 import { PlanComponent } from './select-plan/plan/plan.component';
 import { AddOnCheckboxComponent } from './pick-add-ons/add-on-checkbox/add-on-checkbox.component';
+import { ErrorMessageComponent } from '../shared/error-message/error-message.component';
 
 
 @NgModule({
@@ -26,11 +27,12 @@ import { AddOnCheckboxComponent } from './pick-add-ons/add-on-checkbox/add-on-ch
     SidebarComponent,
     StepComponent,
     PlanComponent,
-    AddOnCheckboxComponent
+    AddOnCheckboxComponent,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     FormRoutingModule
   ]
 })
