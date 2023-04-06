@@ -3,17 +3,17 @@
     <h1>Select your plan</h1>
     <p>You have the option of monthly or yealy billing.</p>
   </header>
-  <form class="form-plans-area">
+  <form class="form-plans-area" [formGroup]="selectedPlan">
     <div class="form-plans">
-      <app-plan *ngFor="let plan of plans" [plan]="plan"></app-plan>
+      <app-plan *ngFor="let plan of plans" [plan]="plan" [control]="optionForm" [isYearlyBilling]="selectedPlan.value.isYearlyBilling"></app-plan>
     </div>
     <div class="form-toggle-wrapper">
-      <label class="label-billing">Monthly</label>
+      <label class="label-billing" [ngClass]="selectedBillingStyle('monthly')">Monthly</label>
       <label for="form-billing" class="form-toggle">
-        <input id="form-billing" type="checkbox" checked />
+        <input id="form-billing" type="checkbox" formControlName="isYearlyBilling" />
         <span class="slider round"></span>
       </label>
-      <label class="label-billing">Yearly</label>
+      <label class="label-billing" [ngClass]="selectedBillingStyle('yearly')">Yearly</label>
     </div>
   </form>
   <footer class="form-footer">
