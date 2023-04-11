@@ -3,14 +3,11 @@
     <h1>Pick add-ons</h1>
     <p>Add-ons help enhance your gaming experience.</p>
   </header>
-  <div class="form-add-ons">
-    <app-add-on-checkbox
-      *ngFor="let addOn of addOns"
-      [addOn]="addOn"
-    ></app-add-on-checkbox>
+  <div class="form-add-ons" [formGroup]="selectedAddOns">
+    <app-add-on-checkbox *ngFor="let addOn of optionsForm.controls; let i = index" [addOn]="addOnsList[i]" [control]="getOptionControl(i)"></app-add-on-checkbox>
   </div>
   <footer class="form-footer">
-    <button class="form-back-button">Go back</button>
+    <button class="form-back-button" (click)="getSelectedOptions()">Go back</button>
     <button class="form-next-button">Next Step</button>
   </footer>
 </section>

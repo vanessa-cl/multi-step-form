@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-plan',
   templateUrl: './plan.component.html',
-  styleUrls: ['./plan.component.sass'],
+  styleUrls: ['./plan.component.sass', '../../../sass/utilities/_common.sass'],
 })
 export class PlanComponent implements OnInit {
   @Input() plan: Plan;
@@ -18,7 +18,7 @@ export class PlanComponent implements OnInit {
 
   selectedPlanStyle() {
     return {
-      'selected-plan': this.control.value === this.plan,
+      'selected-option': this.control.value === this.plan,
     };
   }
 }
