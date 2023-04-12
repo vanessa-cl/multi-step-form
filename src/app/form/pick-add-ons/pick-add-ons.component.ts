@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddOn } from './add-on';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormValidationsService } from '../form-validations.service';
 
 @Component({
   selector: 'app-pick-add-ons',
@@ -43,7 +38,10 @@ export class PickAddOnsComponent implements OnInit {
 
   selectedAddOns: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private formValidation: FormValidationsService
+  ) {}
 
   ngOnInit(): void {
     this.selectedAddOns = this.formBuilder.group({
@@ -51,6 +49,16 @@ export class PickAddOnsComponent implements OnInit {
     });
 
     this.addCheckboxes();
+
+    if (this.formValidation.restoreForm('selectedAddOns') !== undefined) {
+      this.selectedAddOns = this.formValidation.restoreForm('selectedAddOns');
+    }
+
+    this.selectedAddOns.statusChanges.subscribe((status: string) => {
+      if (status === 'VALID') {
+        this.formValidation.storeForm(this.selectedAddOns, 'selectedAddOns');
+      }
+    });
   }
 
   get optionsForm() {
@@ -67,12 +75,4 @@ export class PickAddOnsComponent implements OnInit {
     );
   }
 
-  getSelectedOptions() {
-    const selectedOptions = this.selectedAddOns.value.addOns
-      .map((checked: boolean, index: number) =>
-        checked ? this.addOnsList[index] : null
-      )
-      .filter((value: any) => value !== null);
-    console.log(selectedOptions);
-  }
 }

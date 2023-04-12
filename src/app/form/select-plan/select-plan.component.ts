@@ -6,6 +6,7 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { FormValidationsService } from '../form-validations.service';
 
 @Component({
   selector: 'app-select-plan',
@@ -31,17 +32,36 @@ export class SelectPlanComponent implements OnInit {
       yearlyValue: 120,
       image: '../../../../assets/images/icon-advanced.svg',
     },
-    { id: 3, title: 'Pro', monthlyValue: 15, yearlyValue: 150, image: '../../../../assets/images/icon-pro.svg' },
+    {
+      id: 3,
+      title: 'Pro',
+      monthlyValue: 15,
+      yearlyValue: 150,
+      image: '../../../../assets/images/icon-pro.svg',
+    },
   ];
 
   selectedPlan: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private formValidation: FormValidationsService
+  ) {}
 
   ngOnInit(): void {
     this.selectedPlan = this.formBuilder.group({
       planOption: [null, Validators.required],
       isYearlyBilling: [false, Validators.required],
+    });
+
+    if (this.formValidation.restoreForm('selectedPlan') !== undefined) {
+      this.selectedPlan = this.formValidation.restoreForm('selectedPlan');
+    }
+
+    this.selectedPlan.statusChanges.subscribe((status: string) => {
+      if (status === 'VALID') {
+        this.formValidation.storeForm(this.selectedPlan, 'selectedPlan');
+      }
     });
   }
 
@@ -57,5 +77,4 @@ export class SelectPlanComponent implements OnInit {
           : !this.selectedPlan.value.isYearlyBilling,
     };
   }
-
 }

@@ -12,13 +12,11 @@ export class PlanComponent implements OnInit {
   @Input() control: FormControl;
   @Input() isYearlyBilling: boolean;
 
-  ngOnInit(): void {
-    console.log(this.control);
-  }
+  ngOnInit(): void {}
 
   selectedPlanStyle() {
     return {
-      'selected-option': this.control.value === this.plan,
+      'selected-option': this.control.value?.id === this.plan.id,
     };
   }
 }

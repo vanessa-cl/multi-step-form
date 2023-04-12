@@ -13,7 +13,10 @@ import { FormValidationsService } from '../form-validations.service';
 export class PersonalInfoComponent implements OnInit {
   personalInfo: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private formValidation: FormValidationsService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private formValidation: FormValidationsService
+  ) {}
 
   ngOnInit(): void {
     this.personalInfo = this.formBuilder.group({
@@ -36,6 +39,16 @@ export class PersonalInfoComponent implements OnInit {
         ],
       ],
     });
+
+    if (this.formValidation.restoreForm('personalInfo') !== undefined) {
+      this.personalInfo = this.formValidation.restoreForm('personalInfo');
+    }
+
+    this.personalInfo.statusChanges.subscribe((status: string) => {
+      if (status === 'VALID') {
+        this.formValidation.storeForm(this.personalInfo, 'personalInfo');
+      }
+    });
   }
 
   validateFields(field: string) {
@@ -54,5 +67,4 @@ export class PersonalInfoComponent implements OnInit {
     }
     return '';
   }
-
 }

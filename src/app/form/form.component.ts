@@ -8,9 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class FormComponent implements OnInit {
 
   ngOnInit(): void {
-    // plan: [null, [Validators.required]],
-    //   monthlyBilling: [false, [Validators.required]],
-    //   addOns: [null, [Validators.required]],
-    //   totalValue: [0, [Validators.required]],
+
   }
 }

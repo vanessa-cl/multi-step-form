@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormValidationsService {
-  constructor() {}
+  form: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({});
+  }
 
   validationMessages = (validatorName: string) => {
     const messages: { [index: string]: string } = {
@@ -16,4 +21,12 @@ export class FormValidationsService {
     };
     return messages[validatorName];
   };
+
+  storeForm(formGroup: FormGroup, formName: string): void {
+    this.form.addControl(formName, formGroup);
+  }
+
+  restoreForm(formName: string): FormGroup {
+    return this.form.controls[formName] as FormGroup;
+  }
 }
