@@ -45,7 +45,7 @@ export class PickAddOnsComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedAddOns = this.formBuilder.group({
-      addOns: new FormArray([]),
+      addOns: new FormArray([], this.formValidation.validateMinChecked),
     });
 
     this.addCheckboxes();
@@ -56,6 +56,10 @@ export class PickAddOnsComponent implements OnInit {
 
     this.selectedAddOns.statusChanges.subscribe((status: string) => {
       if (status === 'VALID') {
+        this.formValidation.getSelectedOptions(
+          this.selectedAddOns,
+          this.addOnsList
+        );
         this.formValidation.storeForm(this.selectedAddOns, 'selectedAddOns');
       }
     });
@@ -74,5 +78,4 @@ export class PickAddOnsComponent implements OnInit {
       this.optionsForm.push(new FormControl(false))
     );
   }
-
 }

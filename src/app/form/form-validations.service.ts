@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { AddOn } from './pick-add-ons/add-on';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormValidationsService {
   form: FormGroup;
+  selectedAddOns: Array<AddOn>;
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({});
@@ -28,5 +30,27 @@ export class FormValidationsService {
 
   restoreForm(formName: string): FormGroup {
     return this.form.controls[formName] as FormGroup;
+  }
+
+  get returnForm() {
+    this.form.value.selectedAddOns = this.selectedAddOns
+    return this.form.value
+  }
+
+  validateMinChecked(control: AbstractControl, min = 1) {
+    const totalChecked = control.value.reduce(
+      (total: number, current: number) => (current ? total + current : total),
+      0
+    );
+    return totalChecked >= min ? null : { required: true };
+  }
+
+  getSelectedOptions(formGroup: FormGroup, addOnsList: Array<AddOn>) {
+    const options = formGroup.value.addOns
+      .map((checked: boolean, index: number) =>
+        checked ? addOnsList[index] : null
+      )
+      .filter((value: any) => value !== null);
+    this.selectedAddOns = options;
   }
 }
