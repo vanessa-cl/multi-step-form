@@ -13,7 +13,7 @@ export class FormValidationsService {
     this.form = this.formBuilder.group({});
   }
 
-  validationMessages = (validatorName: string) => {
+  validationMessages = (validatorName: string): string => {
     const messages: { [index: string]: string } = {
       required: 'This field is required',
       minlength: 'Name must contain at least 3 characters',
@@ -32,9 +32,9 @@ export class FormValidationsService {
     return this.form.controls[formName] as FormGroup;
   }
 
-  get returnForm() {
-    this.form.value.selectedAddOns = this.selectedAddOns
-    return this.form.value
+  get returnAllForms(): FormGroup {
+    this.form.value.selectedAddOns = this.selectedAddOns;
+    return this.form.value;
   }
 
   validateMinChecked(control: AbstractControl, min = 1) {
@@ -45,12 +45,28 @@ export class FormValidationsService {
     return totalChecked >= min ? null : { required: true };
   }
 
-  getSelectedOptions(formGroup: FormGroup, addOnsList: Array<AddOn>) {
+  getSelectedOptions(formGroup: FormGroup, addOnsList: Array<AddOn>): void {
     const options = formGroup.value.addOns
       .map((checked: boolean, index: number) =>
         checked ? addOnsList[index] : null
       )
       .filter((value: any) => value !== null);
     this.selectedAddOns = options;
+  }
+
+  isFormValid(formGroup: FormGroup): boolean {
+    return formGroup.status === 'VALID' ? true : false;
+  }
+
+  validateAllForms(formStepsCount = 3): boolean {
+    let isAllFormsInvalid: boolean = true;
+    const controls = this.form.controls;
+    const formsValues = Object.values(controls);
+    if (formsValues.length === formStepsCount) {
+      isAllFormsInvalid = formsValues
+        .map((item) => this.isFormValid(item as FormGroup))
+        .some((item) => item === false);
+    }
+    return isAllFormsInvalid ? false : true;
   }
 }

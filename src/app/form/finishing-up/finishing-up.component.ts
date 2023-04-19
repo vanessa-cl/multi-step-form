@@ -1,20 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormValidationsService } from '../form-validations.service';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-finishing-up',
   templateUrl: './finishing-up.component.html',
-  styleUrls: ['./finishing-up.component.sass', '../../sass/utilities/_common.sass']
+  styleUrls: [
+    './finishing-up.component.sass',
+    '../../sass/utilities/_common.sass',
+  ],
 })
 export class FinishingUpComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private formValidation: FormValidationsService) {}
+  constructor(
+    private formValidation: FormValidationsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.form = this.formValidation.returnForm
-    console.log(this.form)
+    this.form = this.formValidation.returnAllForms;
+    console.log(this.form);
   }
 
+  submitForm() {
+    console.log('submit');
+    this.router.navigate(['/form/thank-you']);
+  }
 }

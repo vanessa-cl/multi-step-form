@@ -6,6 +6,8 @@ import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { PickAddOnsComponent } from './pick-add-ons/pick-add-ons.component';
 import { SelectPlanComponent } from './select-plan/select-plan.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { FormGuard } from '../guards/form.guard';
+import { SubmitGuard } from '../guards/submit.guard';
 
 const routes: Routes = [
   {
@@ -13,11 +15,26 @@ const routes: Routes = [
     component: FormComponent,
     children: [
       { path: '', redirectTo: 'personal-info', pathMatch: 'full' },
-      { path: 'personal-info', component: PersonalInfoComponent },
-      { path: 'select-plan', component: SelectPlanComponent },
-      { path: 'pick-add-ons', component: PickAddOnsComponent },
-      { path: 'finishing-up', component: FinishingUpComponent },
-      { path: 'thank-you', component: ThankYouComponent },
+      {
+        path: 'personal-info',
+        component: PersonalInfoComponent,
+        canDeactivate: [FormGuard],
+      },
+      {
+        path: 'select-plan',
+        component: SelectPlanComponent,
+        canDeactivate: [FormGuard],
+      },
+      {
+        path: 'pick-add-ons',
+        component: PickAddOnsComponent,
+        canDeactivate: [FormGuard],
+      },
+      {
+        path: 'finishing-up',
+        component: FinishingUpComponent,
+      },
+      { path: 'thank-you', component: ThankYouComponent, canActivate: [SubmitGuard] },
     ],
   },
 ];

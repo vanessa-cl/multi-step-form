@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormValidationsService } from '../form-validations.service';
+import { IFormDeactivate } from 'src/app/guards/iform.deactivate';
 
 @Component({
   selector: 'app-personal-info',
@@ -10,7 +11,7 @@ import { FormValidationsService } from '../form-validations.service';
     '../../sass/utilities/_common.sass',
   ],
 })
-export class PersonalInfoComponent implements OnInit {
+export class PersonalInfoComponent implements OnInit, IFormDeactivate {
   personalInfo: FormGroup;
 
   constructor(
@@ -46,12 +47,12 @@ export class PersonalInfoComponent implements OnInit {
 
     this.personalInfo.statusChanges.subscribe((status: string) => {
       if (status === 'VALID') {
-        this.formValidation.storeForm(this.personalInfo, 'personalInfo');
+        return this.formValidation.storeForm(this.personalInfo, 'personalInfo');
       }
     });
   }
 
-  validateFields(field: string) {
+  validateFields(field: string): boolean {
     const checkField = this.personalInfo.get(field);
     if (checkField?.touched && checkField?.errors) {
       return true;
@@ -59,12 +60,20 @@ export class PersonalInfoComponent implements OnInit {
     return false;
   }
 
-  checkErrorMessage(field: string) {
+  checkErrorMessage(field: string): string {
     const checkField = this.personalInfo.get(field);
     if (checkField?.errors) {
       const checkErrors = (<any>Object).keys(checkField?.errors);
       return this.formValidation.validationMessages(checkErrors[0]);
     }
     return '';
+  }
+
+  canDeactivate(): boolean {
+    if (this.formValidation.isFormValid(this.personalInfo)) {
+      return true;
+    }
+    this.personalInfo.markAllAsTouched();
+    return false;
   }
 }

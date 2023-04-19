@@ -65,17 +65,21 @@ export class PickAddOnsComponent implements OnInit {
     });
   }
 
-  get optionsForm() {
+  get optionsForm(): FormArray {
     return this.selectedAddOns.controls['addOns'] as FormArray;
   }
 
-  getOptionControl(index: number) {
+  getOptionControl(index: number): FormControl {
     return this.optionsForm.controls[index] as FormControl;
   }
 
-  private addCheckboxes() {
+  private addCheckboxes(): void {
     this.addOnsList.forEach(() =>
       this.optionsForm.push(new FormControl(false))
     );
+  }
+
+  canDeactivate(): boolean {
+    return this.formValidation.isFormValid(this.selectedAddOns);
   }
 }

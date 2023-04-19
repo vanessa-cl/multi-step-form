@@ -7,6 +7,7 @@ import {
   FormControl,
 } from '@angular/forms';
 import { FormValidationsService } from '../form-validations.service';
+import { IFormDeactivate } from 'src/app/guards/iform.deactivate';
 
 @Component({
   selector: 'app-select-plan',
@@ -16,7 +17,7 @@ import { FormValidationsService } from '../form-validations.service';
     '../../sass/utilities/_common.sass',
   ],
 })
-export class SelectPlanComponent implements OnInit {
+export class SelectPlanComponent implements OnInit, IFormDeactivate {
   plans: Array<Plan> = [
     {
       id: 1,
@@ -65,16 +66,20 @@ export class SelectPlanComponent implements OnInit {
     });
   }
 
-  get optionForm() {
+  get optionForm(): FormControl {
     return this.selectedPlan.controls['planOption'] as FormControl;
   }
 
-  selectedBillingStyle(label: string) {
+  selectedBillingStyle(label: string): object {
     return {
       highlight:
         label === 'yearly'
           ? this.selectedPlan.value.isYearlyBilling
           : !this.selectedPlan.value.isYearlyBilling,
     };
+  }
+
+  canDeactivate(): boolean {
+    return this.formValidation.isFormValid(this.selectedPlan);
   }
 }
