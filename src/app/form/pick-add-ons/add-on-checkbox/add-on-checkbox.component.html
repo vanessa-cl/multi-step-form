@@ -1,11 +1,21 @@
 <label [for]="addOn.id" class="form-add-on" [ngClass]="selectedCheckboxStyle()">
   <div class="checkbox-container">
-    <input [id]="addOn.id" type="checkbox" [value]="addOn" [formControl]="control"/>
+    <input
+      [id]="addOn.id"
+      type="checkbox"
+      [value]="addOn"
+      [formControl]="control"
+    />
     <span class="checkmark"></span>
   </div>
   <div class="add-on-detail">
     <p class="add-on-title">{{ addOn.title }}</p>
     <p class="add-on-description">{{ addOn.description }}</p>
   </div>
-  <p class="add-on-value">+${{ addOn.monthlyValue }}/mo</p>
+  <div *ngIf="isYearlyBilling; else elseBlock">
+    <p class="add-on-value">+${{ addOn.yearlyValue }}/yr</p>
+  </div>
+  <ng-template #elseBlock>
+    <p class="add-on-value">+${{ addOn.monthlyValue }}/mo</p>
+  </ng-template>
 </label>

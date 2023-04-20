@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AddOn } from '../add-on';
 import { FormControl } from '@angular/forms';
+import { FormValidationsService } from '../../form-validations.service';
 
 @Component({
   selector: 'app-add-on-checkbox',
@@ -13,8 +14,13 @@ import { FormControl } from '@angular/forms';
 export class AddOnCheckboxComponent implements OnInit {
   @Input() addOn: AddOn;
   @Input() control: FormControl;
+  isYearlyBilling: boolean;
 
-  ngOnInit(): void {}
+  constructor(private formValidations: FormValidationsService) {}
+
+  ngOnInit(): void {
+    this.isYearlyBilling = this.formValidations.returnSelectedBilling;
+  }
 
   selectedCheckboxStyle() {
     return {

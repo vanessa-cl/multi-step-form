@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { AddOn } from './pick-add-ons/add-on';
+import { Form } from './form';
 
 @Injectable({
   providedIn: 'root',
@@ -32,9 +33,13 @@ export class FormValidationsService {
     return this.form.controls[formName] as FormGroup;
   }
 
-  get returnAllForms(): FormGroup {
+  get returnAllForms(): Form {
     this.form.value.selectedAddOns = this.selectedAddOns;
     return this.form.value;
+  }
+
+  get returnSelectedBilling(): boolean {
+    return this.form.value.selectedPlan.isYearlyBilling;
   }
 
   validateMinChecked(control: AbstractControl, min = 1) {

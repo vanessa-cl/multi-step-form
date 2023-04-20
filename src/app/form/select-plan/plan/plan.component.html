@@ -1,9 +1,19 @@
 <label [for]="plan.title" class="form-plan" [ngClass]="selectedPlanStyle()">
-  <input [id]="plan.title" type="radio" [value]="plan" [formControl]="control" />
-  <img [src]="plan.image" alt="arcade-plan"/>
+  <input
+    [id]="plan.title"
+    type="radio"
+    [value]="plan"
+    [formControl]="control"
+  />
+  <img [src]="plan.image" alt="arcade-plan" />
   <div class="form-plan-description">
     <h3>{{ plan.title }}</h3>
-    <p class="form-plan-value">${{ plan.yearlyValue }}/yr</p>
+    <div *ngIf="isYearlyBilling; else elseBlock">
+      <p class="form-plan-value">${{ plan.yearlyValue }}/yr</p>
+    </div>
+    <ng-template #elseBlock>
+      <p class="form-plan-value">${{ plan.monthlyValue }}/mo></p>
+    </ng-template>
     <p class="form-plan-free" *ngIf="isYearlyBilling">2 months free</p>
   </div>
 </label>

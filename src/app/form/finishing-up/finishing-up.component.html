@@ -7,24 +7,57 @@
     <div class="form-summary">
       <div class="form-summary-plan">
         <div>
-          <p class="plan-title">Arcade (Monthly)</p>
+          <p *ngIf="changeBilling(); else elseBillingBlock" class="plan-title">
+            {{ form.selectedPlan.planOption.title }} (Yearly)
+          </p>
+          <ng-template #elseBillingBlock>
+            <p class="plan-title">
+              {{ form.selectedPlan.planOption.title }} (Monthly)
+            </p>
+          </ng-template>
           <button>Change</button>
         </div>
-        <p class="plan-value">$9/mo</p>
+        <div>
+          <p class="plan-value" *ngIf="changeBilling(); else elseValueBlock">
+            ${{ form.selectedPlan.planOption.yearlyValue }}/yr
+          </p>
+        </div>
+        <ng-template #elseValueBlock>
+          <p class="plan-value">
+            ${{ form.selectedPlan.planOption.monthlyValue }}/mo
+          </p>
+        </ng-template>
       </div>
-      <hr>
-      <div class="form-summary-detail">
-        <p>Online service</p>
-        <p class="detail-value">+$1/mo</p>
-      </div>
-      <div class="form-summary-detail">
-        <p>Larger storage</p>
-        <p class="detail-value">+$2/mo</p>
+      <hr />
+      <div
+        class="form-summary-detail"
+        *ngFor="let addOn of form.selectedAddOns"
+      >
+        <p>{{ addOn.title }}</p>
+        <div>
+          <p
+            class="detail-value"
+            *ngIf="changeBilling(); else elseAddOnValueBlock"
+          >
+            +${{ addOn.yearlyValue }}/yr
+          </p>
+        </div>
+        <ng-template #elseAddOnValueBlock>
+          <p class="detail-value">+${{ addOn.monthlyValue }}/mo</p>
+        </ng-template>
       </div>
     </div>
-    <div class="form-total">
-      <p>Total (per month)</p>
-      <p class="total-value">+12$/mo</p>
+    <div>
+      <div class="form-total" *ngIf="changeBilling(); else elseTotalValueBlock">
+        <p>Total (per year)</p>
+        <p class="total-value">+{{ sumTotalValue() }}$/yr</p>
+      </div>
+      <ng-template class="form-total" #elseTotalValueBlock>
+        <div class="form-total">
+          <p>Total (per month)</p>
+          <p class="total-value">+{{ sumTotalValue() }}$/mo</p>
+        </div>
+      </ng-template>
     </div>
   </div>
   <footer class="form-footer">
