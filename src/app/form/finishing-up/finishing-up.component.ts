@@ -3,6 +3,7 @@ import { FormValidationsService } from '../form-validations.service';
 import { Router } from '@angular/router';
 import { AddOn } from '../pick-add-ons/add-on';
 import { Form } from '../form';
+import { NavigationService } from 'src/app/shared/navigation/navigation.service';
 
 @Component({
   selector: 'app-finishing-up',
@@ -17,7 +18,8 @@ export class FinishingUpComponent implements OnInit {
 
   constructor(
     private formValidation: FormValidationsService,
-    private router: Router
+    public router: Router,
+    public navigation: NavigationService
   ) {}
 
   ngOnInit(): void {

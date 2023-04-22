@@ -4,10 +4,24 @@
     <p>Add-ons help enhance your gaming experience.</p>
   </header>
   <div class="form-add-ons" [formGroup]="selectedAddOns">
-    <app-add-on-checkbox *ngFor="let addOn of optionsForm.controls; let i = index" [addOn]="addOnsList[i]" [control]="getOptionControl(i)"></app-add-on-checkbox>
+    <app-add-on-checkbox
+      *ngFor="let addOn of optionsForm.controls; let i = index"
+      [addOn]="addOnsList[i]"
+      [control]="getOptionControl(i)"
+    ></app-add-on-checkbox>
   </div>
   <footer class="form-footer">
-    <button class="form-back-button">Go back</button>
-    <button class="form-next-button">Next Step</button>
+    <button
+      class="form-back-button"
+      (click)="this.navigation.navigateTo(this.router, 'select-plan')"
+    >
+      Go back
+    </button>
+    <button
+      class="form-next-button"
+      (click)="this.navigation.navigateTo(this.router, 'finishing-up')"
+    >
+      Next Step
+    </button>
   </footer>
 </section>

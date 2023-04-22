@@ -15,7 +15,11 @@
               {{ form.selectedPlan.planOption.title }} (Monthly)
             </p>
           </ng-template>
-          <button>Change</button>
+          <button
+            (click)="this.navigation.navigateTo(this.router, 'thank-you')"
+          >
+            Change
+          </button>
         </div>
         <div>
           <p class="plan-value" *ngIf="changeBilling(); else elseValueBlock">
@@ -61,7 +65,12 @@
     </div>
   </div>
   <footer class="form-footer">
-    <button class="form-back-button">Go Back</button>
+    <button
+      class="form-back-button"
+      (click)="this.navigation.navigateTo(this.router, 'pick-add-ons')"
+    >
+      Go Back
+    </button>
     <button class="form-confirm-button" (click)="submitForm()">Confirm</button>
   </footer>
 </section>

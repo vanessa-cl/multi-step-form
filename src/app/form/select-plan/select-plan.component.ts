@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { FormValidationsService } from '../form-validations.service';
 import { IFormDeactivate } from 'src/app/guards/iform.deactivate';
+import { Router } from '@angular/router';
+import { NavigationService } from 'src/app/shared/navigation/navigation.service';
 
 @Component({
   selector: 'app-select-plan',
@@ -46,7 +48,9 @@ export class SelectPlanComponent implements OnInit, IFormDeactivate {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formValidation: FormValidationsService
+    private formValidation: FormValidationsService,
+    public router: Router,
+    public navigation: NavigationService
   ) {}
 
   ngOnInit(): void {

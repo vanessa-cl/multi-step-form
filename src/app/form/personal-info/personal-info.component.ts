@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormValidationsService } from '../form-validations.service';
 import { IFormDeactivate } from 'src/app/guards/iform.deactivate';
+import { Router } from '@angular/router';
+import { NavigationService } from 'src/app/shared/navigation/navigation.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -16,7 +18,9 @@ export class PersonalInfoComponent implements OnInit, IFormDeactivate {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formValidation: FormValidationsService
+    private formValidation: FormValidationsService,
+    public router: Router,
+    public navigation: NavigationService
   ) {}
 
   ngOnInit(): void {
@@ -75,5 +79,9 @@ export class PersonalInfoComponent implements OnInit, IFormDeactivate {
     }
     this.personalInfo.markAllAsTouched();
     return false;
+  }
+
+  navigateToNextPage() {
+    this.router.navigate(['form/select-plan']);
   }
 }

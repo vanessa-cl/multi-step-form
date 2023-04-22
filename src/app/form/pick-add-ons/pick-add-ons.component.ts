@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AddOn } from './add-on';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { FormValidationsService } from '../form-validations.service';
+import { Router } from '@angular/router';
+import { NavigationService } from 'src/app/shared/navigation/navigation.service';
 
 @Component({
   selector: 'app-pick-add-ons',
@@ -40,7 +42,9 @@ export class PickAddOnsComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formValidation: FormValidationsService
+    private formValidation: FormValidationsService,
+    public router: Router,
+    public navigation: NavigationService
   ) {}
 
   ngOnInit(): void {
