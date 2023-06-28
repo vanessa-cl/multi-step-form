@@ -13,7 +13,10 @@
       ></app-plan>
     </div>
     <div class="form-toggle-wrapper">
-      <label class="label-billing" [ngClass]="selectedBillingStyle('monthly')"
+      <label
+        for="form-billing"
+        class="label-billing"
+        [ngClass]="selectedBillingStyle('monthly')"
         >Monthly</label
       >
       <label for="form-billing" class="form-toggle">
@@ -24,7 +27,10 @@
         />
         <span class="slider round"></span>
       </label>
-      <label class="label-billing" [ngClass]="selectedBillingStyle('yearly')"
+      <label
+        for="form-billing"
+        class="label-billing"
+        [ngClass]="selectedBillingStyle('yearly')"
         >Yearly</label
       >
     </div>
@@ -34,7 +40,7 @@
       class="form-back-button"
       (click)="this.navigation.navigateTo(this.router, 'personal-info')"
     >
-      Go back
+      Go Back
     </button>
     <button
       class="form-next-button"

@@ -29,6 +29,7 @@
   @include text-style(--white, 1rem, 400, none)
   background-color: var(--marine-blue)
   margin-left: auto
+  width: 125px
 
 .form-back-button
   @extend %form-button
@@ -36,6 +37,12 @@
   background-color: transparent
   padding: 0
 
+  &:hover
+    @include text-style(--marine-blue, 1rem, 700, none)
+
+.form-next-button, .form-back-button
+  cursor: pointer
+
 .selected-option
-  outline: 1px solid var(--purplish-blue)
+  @extend %selected-option
   background-color: var(--magnolia)

@@ -34,12 +34,16 @@ p
 
   button
     @include text-style(--cool-gray, 1rem, 400, none)
-    @extends %form-button
+    @extend %form-button
     background-color: transparent
     border: none
     text-decoration: underline
     text-decoration-thickness: 2px
     padding: 0
+    cursor: pointer
+
+    &:hover
+      @include text-style(--purplish-blue, 1rem, 400, none)
 
 .form-summary-detail
   margin-top: 1rem
@@ -60,3 +64,5 @@ p
   @include text-style(--white, 1rem, 500, none)
   background-color: var(--purplish-blue)
   margin-left: auto
+  cursor: pointer
+  width: 125px

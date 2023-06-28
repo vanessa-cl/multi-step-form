@@ -1,10 +1,15 @@
 @import '../../../sass/utilities/_mixins.sass'
+@import '../../../sass/utilities/_extends.sass'
 
 .form-add-on
   @include flexbox(row, center, space-between)
   border: 1px solid var(--light-gray)
   border-radius: 7px
   padding: 1.2rem
+  cursor: pointer
+
+  &:hover 
+    @extend %selected-option
 
 .add-on-description, .add-on-value
   margin: 0

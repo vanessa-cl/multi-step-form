@@ -29,5 +29,12 @@
   input[type=number]
     -moz-appearance: textfield
 
+  input:focus, input:hover
+    outline: 1px solid var(--purplish-blue)
+
+
 .form-label-wrapper
   @include flexbox(row, center, space-between)
+
+.invalid-field 
+  outline: 1px solid var(--strawberry-red)

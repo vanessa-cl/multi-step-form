@@ -1,4 +1,5 @@
 @import '../../../sass/utilities/_mixins.sass'
+@import '../../../sass/utilities/_extends.sass'
 
 .form-plan
   @include flexbox(column, flex-start, flex-start)
@@ -6,12 +7,16 @@
   border-radius: 7px
   padding: 1rem
   width: 8.5rem
+  cursor: pointer
 
   h3
     @include text-style(--marine-blue, 1rem, 500, none)
 
   img
     margin: 0 2rem 2rem 0
+
+  &:hover
+    @extend %selected-option
 
 .form-plan-description
 

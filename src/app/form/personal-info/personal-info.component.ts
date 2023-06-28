@@ -84,4 +84,10 @@ export class PersonalInfoComponent implements OnInit, IFormDeactivate {
   navigateToNextPage() {
     this.router.navigate(['form/select-plan']);
   }
+
+  invalidLabelStyle(field: string) {
+    return {
+      'invalid-field': this.validateFields(field) ,
+    };
+  }
 }
