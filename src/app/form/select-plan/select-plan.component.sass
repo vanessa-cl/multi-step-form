@@ -73,3 +73,9 @@
 
 .highlight
   @include text-style(--marine-blue, 1rem, 500, none)
+
+@media (max-width: 400px)
+
+  .form-plans
+    @include flexbox(column, center, space-between)
+    margin-top: 0

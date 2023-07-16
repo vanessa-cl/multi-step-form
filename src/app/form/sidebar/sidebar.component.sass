@@ -10,3 +10,18 @@
 .step-ul
   padding: 0
   margin-top: 2rem
+
+@media (max-width: 400px)
+
+  .sidebar
+    border-radius: 0
+    background-repeat: no-repeat
+    background-image: url('../../../assets/images/bg-sidebar-mobile.svg')
+    background-size: 100%
+    width: 100vw
+    height: 180px
+    padding: 10px
+
+  .step-ul
+    @include flexbox(row, center, center)
+    margin-top: 1rem

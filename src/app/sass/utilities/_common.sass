@@ -46,3 +46,25 @@
 .selected-option
   @extend %selected-option
   background-color: var(--magnolia)
+
+@media (max-width: 400px)
+
+  .main-wrapper
+    width: 100vw
+    height: 100vh
+    min-height: 100%
+    box-sizing: border-box
+    overflow-x: hidden
+    overflow-y: hidden
+    @include flexbox(column, center, space-between)
+    background-color: var(--light-blue)
+    padding: 0
+    border-radius: 0
+
+  .form-header
+
+    h1
+      margin: 1rem 0 0 0
+
+  .form-footer
+    display: none

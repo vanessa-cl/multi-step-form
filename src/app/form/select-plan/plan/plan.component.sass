@@ -31,3 +31,14 @@
 
 input
   display: none
+
+@media (max-width: 400px)
+
+  .form-plan
+    width: 18rem
+    padding: 0.5rem
+    margin-top: 1rem
+    @include flexbox(row, center, flex-start)
+
+    img
+      margin: 0 1rem 0 0.5rem
