@@ -5,15 +5,9 @@ hr
   color: var(--light-gray)
   opacity: 20%
 
-p
-  margin: 0
-  padding: 0
 
 .form-summary-area, .form-summary-plan, .form-summary-detail, hr
   width: 100%
-
-.form-summary-area
-  margin: 3rem 0 auto 0
 
 .form-summary
   @include flexbox(column, center, center)
@@ -66,3 +60,14 @@ p
   margin-left: auto
   cursor: pointer
   width: 125px
+
+@media (max-width: 400px)
+
+  .form-summary
+    padding: 1rem
+
+  .form-summary-area
+    margin: 0
+
+  .form-summary-detail
+    margin-top: 0
