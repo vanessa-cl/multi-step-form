@@ -26,11 +26,6 @@ export class FinishingUpComponent implements OnInit {
     this.form = this.formValidation.returnAllForms;
   }
 
-  submitForm() {
-    console.log('submit');
-    this.router.navigate(['/form/thank-you']);
-  }
-
   changeBilling() {
     return this.form.selectedPlan.isYearlyBilling;
   }

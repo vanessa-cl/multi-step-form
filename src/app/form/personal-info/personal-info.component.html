@@ -1,4 +1,4 @@
-<section  class="form-wrapper">
+<section class="form-wrapper">
   <header class="form-header">
     <h1>Personal info</h1>
     <p>Please provide your name, email address, and phone number.</p>
@@ -56,7 +56,7 @@
       />
     </div>
   </form>
-  <footer class="form-footer">
-    <button class="form-next-button" (click)="this.navigation.navigateTo(this.router, 'select-plan')">Next Step</button>
-  </footer>
+  <div class="form-footer-wrapper">
+    <app-nav-footer class="footer-container" nextRoute="select-plan"></app-nav-footer>
+  </div>
 </section>

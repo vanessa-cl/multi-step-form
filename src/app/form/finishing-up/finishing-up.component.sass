@@ -5,6 +5,9 @@ hr
   color: var(--light-gray)
   opacity: 20%
 
+.form-summary-area
+  margin-top: 2rem
+  height: 100%
 
 .form-summary-area, .form-summary-plan, .form-summary-detail, hr
   width: 100%
@@ -25,6 +28,7 @@ hr
 
   p
     @include text-style(--marine-blue, 1.1rem, 500, none)
+    margin: 0
 
   button
     @include text-style(--cool-gray, 1rem, 400, none)
@@ -46,6 +50,7 @@ hr
   
   p
     @include text-style(--cool-gray, 1rem, 500, none)
+    margin: 0
 
   .detail-value
     @include text-style(--marine-blue, 1rem, 400, none)
@@ -53,21 +58,13 @@ hr
   .total-value
     @include text-style(--purplish-blue, 1.2rem, 700, none)
 
-.form-confirm-button
-  @extend %form-button
-  @include text-style(--white, 1rem, 500, none)
-  background-color: var(--purplish-blue)
-  margin-left: auto
-  cursor: pointer
-  width: 125px
-
 @media (max-width: 400px)
 
-  .form-summary
-    padding: 1rem
+  // .form-summary
+  //   padding: 1rem
 
   .form-summary-area
-    margin: 0
+    margin-top: 1rem
 
-  .form-summary-detail
-    margin-top: 0
+  // .form-summary-detail
+  //   margin-top: 0

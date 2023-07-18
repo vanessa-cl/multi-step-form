@@ -35,18 +35,11 @@
       >
     </div>
   </form>
-  <footer class="form-footer">
-    <button
-      class="form-back-button"
-      (click)="this.navigation.navigateTo(this.router, 'personal-info')"
-    >
-      Go Back
-    </button>
-    <button
-      class="form-next-button"
-      (click)="this.navigation.navigateTo(this.router, 'pick-add-ons')"
-    >
-      Next Step
-    </button>
-  </footer>
+  <div class="form-footer-wrapper">
+    <app-nav-footer
+      class="footer-container"
+      previousRoute="personal-info"
+      nextRoute="pick-add-ons"
+    ></app-nav-footer>
+  </div>
 </section>

@@ -14,6 +14,7 @@ import { StepComponent } from './sidebar/step/step.component';
 import { PlanComponent } from './select-plan/plan/plan.component';
 import { AddOnCheckboxComponent } from './pick-add-ons/add-on-checkbox/add-on-checkbox.component';
 import { ErrorMessageComponent } from '../shared/error-message/error-message.component';
+import { NavFooterComponent } from '../shared/nav-footer/nav-footer.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ErrorMessageComponent } from '../shared/error-message/error-message.com
     StepComponent,
     PlanComponent,
     AddOnCheckboxComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    NavFooterComponent
   ],
   imports: [
     CommonModule,

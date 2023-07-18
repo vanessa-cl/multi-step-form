@@ -64,13 +64,10 @@
       </ng-template>
     </div>
   </div>
-  <footer class="form-footer">
-    <button
-      class="form-back-button"
-      (click)="this.navigation.navigateTo(this.router, 'pick-add-ons')"
-    >
-      Go Back
-    </button>
-    <button class="form-confirm-button" (click)="submitForm()">Confirm</button>
-  </footer>
+  <div class="form-footer-wrapper">
+    <app-nav-footer
+      class="footer-container"
+      previousRoute="pick-add-ons"
+    ></app-nav-footer>
+  </div>
 </section>

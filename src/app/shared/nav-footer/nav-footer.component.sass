@@ -1,0 +1,32 @@
+@import '../../sass/utilities/_mixins.sass'
+@import '../../sass/utilities/_extends.sass'
+
+.form-footer
+  @include flexbox(row, center, space-between)
+
+.form-next-button
+  @extend %form-button
+  @include text-style(--white, 1rem, 400, none)
+  background-color: var(--marine-blue)
+  margin-left: auto
+  width: 125px
+
+.form-back-button
+  @extend %form-button
+  @include text-style(--cool-gray, 1rem, 700, none)
+  background-color: transparent
+  padding: 0
+
+  &:hover
+    @include text-style(--marine-blue, 1rem, 700, none)
+
+.form-confirm-button
+  @extend %form-button
+  @include text-style(--white, 1rem, 500, none)
+  background-color: var(--purplish-blue)
+  margin-left: auto
+  position: relative
+  width: 125px
+
+.form-next-button, .form-back-button, .form-confirm-button
+  cursor: pointer

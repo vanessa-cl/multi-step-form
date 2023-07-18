@@ -10,18 +10,11 @@
       [control]="getOptionControl(i)"
     ></app-add-on-checkbox>
   </div>
-  <footer class="form-footer">
-    <button
-      class="form-back-button"
-      (click)="this.navigation.navigateTo(this.router, 'select-plan')"
-    >
-      Go Back
-    </button>
-    <button
-      class="form-next-button"
-      (click)="this.navigation.navigateTo(this.router, 'finishing-up')"
-    >
-      Next Step
-    </button>
-  </footer>
+  <div class="form-footer-wrapper">
+    <app-nav-footer
+      class="footer-container"
+      previousRoute="select-plan"
+      nextRoute="finishing-up"
+    ></app-nav-footer>
+  </div>
 </section>

@@ -1,0 +1,17 @@
+<footer class="form-footer">
+  <button
+    *ngIf="this.previousRoute"
+    class="form-back-button"
+    (click)="this.navigation.navigateTo(this.router, this.previousRoute)"
+  >
+    Go Back
+  </button>
+  <button
+    *ngIf="this.nextRoute"
+    class="form-next-button"
+    (click)="this.navigation.navigateTo(this.router, this.nextRoute)"
+  >
+    Next Step
+  </button>
+  <button *ngIf="!this.nextRoute" class="form-confirm-button" (click)="submitForm()">Confirm</button>
+</footer>
